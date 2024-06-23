@@ -1,0 +1,87 @@
+/* Video container to ensure responsive aspect ratio */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Default 16:9 aspect ratio */
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Responsive aspect ratio for portrait video */
+.video-container.portrait {
+  padding-top: 177.78%; /* 9:16 aspect ratio for portrait */
+}
+
+/* Actual video element */
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Play Video text overlay */
+.play-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Slider container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Slider track */
+.slider-track {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Individual slide */
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px; /* Optional padding between slides */
+}
+
+/* Navigation buttons */
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.slider-button.prev {
+  left: 10px;
+}
+
+.slider-button.next {
+  right: 10px;
+}
+
+/* Ensure the video inside the slide also respects the aspect ratio */
+.slide .video-container {
+  max-width: none;
+  width: 100%;
+}
